@@ -1,0 +1,53 @@
+{
+  "name": "webpack-react",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Michael Pontus <m.pontus@gmail.com>",
+  "license": "MIT",
+  "homepage": "http://futebolms.com.br/v5/wp-content/themes/colormag/dist",
+  "scripts": {
+    "build": "webpack --mode production",
+    "start": "webpack-dev-server --mode development"
+  },
+  "dependencies": {
+    "@clr/core": "^4.0.4",
+    "@clr/icons": "^4.0.4",
+    "@clr/ui": "^4.0.4",
+    "@webcomponents/webcomponentsjs": "^2.5.0",
+    "bootstrap": "^4.5.3",
+    "history": "^5.0.0",
+    "nuka-carousel": "^4.7.2",
+    "react": "^16.9.0",
+    "react-bootstrap": "^1.4.0",
+    "react-dom": "^16.9.0",
+    "react-icons": "^3.11.0",
+    "react-router-dom": "^6.0.0-beta.0",
+    "react-slick": "^0.27.13"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.0",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/plugin-transform-react-constant-elements": "^7.6.0",
+    "@babel/plugin-transform-react-inline-elements": "^7.2.0",
+    "@babel/plugin-transform-runtime": "^7.6.0",
+    "@babel/preset-env": "^7.6.0",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/runtime": "^7.6.0",
+    "@svgr/webpack": "^4.3.2",
+    "@types/uikit": "^3.3.1",
+    "babel-loader": "^8.0.6",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
+    "css-loader": "^3.2.0",
+    "file-loader": "^4.2.0",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.8.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "style-loader": "^1.0.0",
+    "terser-webpack-plugin": "^2.1.0",
+    "url-loader": "^2.1.0",
+    "webpack": "^4.40.2",
+    "webpack-cli": "^3.3.9",
+    "webpack-dev-server": "^3.8.1"
+  }
+}
