@@ -25,12 +25,10 @@ const QuartasFinal = ({ idFase }) => {
   const [grupos, setGrupos] = React.useState(null);
 
   function getClassificacaoFase() {
-    const proxyurl = 'https://cors-anywhere.herokuapp.com/';
     const url = `${dadosGlobais.baseUrl}CampeonatoGrupos/${idFase}`;
-    fetch(proxyurl + url, {
+    fetch(url, {
       headers: {
         'Content-Type': 'application/json; charset=utf-8',
-        Authorization: `${dadosGlobais.auth}`,
       },
     })
       .then((response) => response.json())

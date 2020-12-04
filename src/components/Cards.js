@@ -7,12 +7,10 @@ const Cards = () => {
   const [competicoes, setCompeticoes] = React.useState(null);
 
   function seriesCampeonatos() {
-    const proxyurl = 'https://cors-anywhere.herokuapp.com/';
     const url = `${dadosGlobais.baseUrl}Campeonatos`;
-    fetch(proxyurl + url, {
+    fetch(url, {
       headers: {
         'Content-Type': 'application/json; charset=utf-8',
-        Authorization: `${dadosGlobais.auth}`,
       },
     })
       .then((response) => response.json())

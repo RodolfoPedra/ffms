@@ -23,7 +23,7 @@ const Carrossel = ({ idFase, abrev }) => {
   function getJogos() {
     const proxyurl = 'https://cors-anywhere.herokuapp.com/';
     const url = `${dadosGlobais.baseUrl}JogosPorCampeonatoFase/${idFase}`;
-    fetch(proxyurl + url, {
+    fetch(url, {
       headers: {
         'Content-Type': 'application/json; charset=utf-8',
         Authorization: `${dadosGlobais.auth}`,
@@ -55,7 +55,6 @@ const Carrossel = ({ idFase, abrev }) => {
   }, [jogosRodada]);
 
   if (rodadas === null || jogosRodada === null) return null;
-  console.log('carrossel id: ', idFase);
   return (
     <>
       <div

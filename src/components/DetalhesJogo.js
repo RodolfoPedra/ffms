@@ -15,14 +15,12 @@ const DetalhesJogo = () => {
   const dadosGlobais = React.useContext(GlobalContext);
   const [jogo, setJogo] = React.useState(null);
   const [nomeFase, setNomeFase] = React.useState(null);
-  console.log('detalhes :', dadosGlobais.campeonatosNomes);
+
   function getJogo() {
-    const proxyurl = 'https://cors-anywhere.herokuapp.com/';
     const url = `${dadosGlobais.baseUrl}Jogo/${id_jogo}`;
-    fetch(proxyurl + url, {
+    fetch(url, {
       headers: {
         'Content-Type': 'application/json; charset=utf-8',
-        Authorization: `${dadosGlobais.auth}`,
       },
     })
       .then((response) => response.json())
@@ -30,12 +28,10 @@ const DetalhesJogo = () => {
   }
 
   function getArbitrosJogos() {
-    const proxyurl = 'https://cors-anywhere.herokuapp.com/';
     const url = `${dadosGlobais.baseUrl}ArbitrosEscaladosJogo/${id_jogo}`;
-    fetch(proxyurl + url, {
+    fetch(url, {
       headers: {
         'Content-Type': 'application/json; charset=utf-8',
-        Authorization: `${dadosGlobais.auth}`,
       },
     })
       .then((response) => response.json())
@@ -43,12 +39,10 @@ const DetalhesJogo = () => {
   }
 
   function getAlteracoes() {
-    const proxyurl = 'https://cors-anywhere.herokuapp.com/';
     const url = `${dadosGlobais.baseUrl}AlteracoesJogo/${id_jogo}`;
-    fetch(proxyurl + url, {
+    fetch(url, {
       headers: {
         'Content-Type': 'application/json; charset=utf-8',
-        Authorization: `${dadosGlobais.auth}`,
       },
     })
       .then((response) => response.json())

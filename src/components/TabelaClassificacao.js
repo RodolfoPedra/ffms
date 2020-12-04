@@ -22,17 +22,25 @@ const TabelaClassificacao = ({ idFase, idGrupo }) => {
   const dadosGlobais = React.useContext(GlobalContext);
   const [classificacao, setClassificacao] = React.useState(null);
 
+  function unique(json) {
+    const dadosTemp = Array.from(new Set(json.map((i) => i.CodTime))).map(
+      (ct) => {
+        return json.find((i) => i.CodTime === ct);
+      },
+    );
+    const dados = json.filter((i) => i.rodada == dadosTemp.length);
+    setClassificacao(dados);
+  }
+
   function getClassificacaoFase() {
-    const proxyurl = 'https://cors-anywhere.herokuapp.com/';
     const url = `${dadosGlobais.baseUrl}ClassificacaoCampeonatoGrupo/${idFase}/${idGrupo}`;
-    fetch(proxyurl + url, {
+    fetch(url, {
       headers: {
         'Content-Type': 'application/json; charset=utf-8',
-        Authorization: `${dadosGlobais.auth}`,
       },
     })
       .then((response) => response.json())
-      .then((json) => setClassificacao(json));
+      .then((json) => unique(json));
   }
 
   React.useEffect(() => {

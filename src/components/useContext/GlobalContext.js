@@ -17,19 +17,15 @@ export const GlobalStorage = ({ children }) => {
     35016: 'CEU',
   });
 
-  const baseUrl = 'http://servicos-fdrs.cbf.com.br/api/Schemafdrs/';
-  const auth =
-    'Basic bXMucmVnaXN0cm9AY2JmLmNvbS5icjpGbWF0b2dyb3Nzb2Rvc3VsIzIwMTUxMTEwIw==';
+  const baseUrl = 'http://deployme-com-br.umbler.net/cbf/';
   const [alteracoesJogos, setAlteracoesJogos] = React.useState(null);
   const [campeonatosNomes, setCampeonatosNomes] = React.useState(null);
 
   function getAlteracoesJogos() {
-    const proxyurl = 'https://cors-anywhere.herokuapp.com/';
     const url = `${baseUrl}AlteracoesJogos`;
-    fetch(proxyurl + url, {
+    fetch(url, {
       headers: {
         'Content-Type': 'application/json; charset=utf-8',
-        Authorization: `${auth}`,
       },
     })
       .then((response) => response.json())
@@ -39,10 +35,9 @@ export const GlobalStorage = ({ children }) => {
   function campeonatos() {
     const proxyurl = 'https://cors-anywhere.herokuapp.com/';
     const url = `${baseUrl}Campeonatos`;
-    fetch(proxyurl + url, {
+    fetch(url, {
       headers: {
         'Content-Type': 'application/json; charset=utf-8',
-        Authorization: `${auth}`,
       },
     })
       .then((response) => response.json())
@@ -56,7 +51,7 @@ export const GlobalStorage = ({ children }) => {
 
   return (
     <GlobalContext.Provider
-      value={{ baseUrl, auth, alteracoesJogos, abrevTimes, campeonatosNomes }}
+      value={{ baseUrl, alteracoesJogos, abrevTimes, campeonatosNomes }}
     >
       {children}
     </GlobalContext.Provider>
