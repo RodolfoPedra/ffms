@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { GlobalContext } from './useContext/GlobalContext';
 
-const Cards = () => {
+const Cards = ({ exercicio, codCompeticao }) => {
   const dadosGlobais = React.useContext(GlobalContext);
   const [competicoes, setCompeticoes] = React.useState(null);
 
@@ -14,7 +14,16 @@ const Cards = () => {
       },
     })
       .then((response) => response.json())
-      .then((result) => setCompeticoes(result));
+      .then((result) => {
+        if (codCompeticao == null) {
+          setCompeticoes(result);
+        } else {
+          const resultCompet = result.filter(
+            (v) => v.codigo_campeonato == codCompeticao,
+          );
+          setCompeticoes(resultCompet);
+        }
+      });
   }
 
   React.useEffect(() => {
@@ -27,25 +36,23 @@ const Cards = () => {
   return (
     <div className="cards">
       {competicoes &&
-        competicoes.map((v, k) =>
-          v.codigo_campeonato !== 373 ? (
-            <div className="clr-col-3" key={v.Campeonato_Nome}>
-              <Link
-                to={`classificacao/${v.Campeonato_Nome}/${v.codigo_campeonato}`}
-                className="card clickable"
-              >
-                <div className="card-img">
-                  <img
-                    src={`http://futebolms.com.br/v5/wp-content/uploads/api/campeonatos/2020/${v.codigo_campeonato}.png`}
-                  />
-                </div>
-                <div className="card-block">
-                  <p className="card-text">{v.Campeonato_Nome}</p>
-                </div>
-              </Link>
-            </div>
-          ) : null,
-        )}
+        competicoes.map((v, k) => (
+          <div className="clr-col-3" key={v.Campeonato_Nome}>
+            <Link
+              to={`classificacao/${v.Campeonato_Nome}/${v.codigo_campeonato}`}
+              className="card clickable"
+            >
+              <div className="card-img">
+                <img
+                  src={`http://futebolms.com.br/v5/wp-content/uploads/api/campeonatos/${exercicio}/${v.codigo_campeonato}.png`}
+                />
+              </div>
+              <div className="card-block">
+                <p className="card-text">{v.Campeonato_Nome}</p>
+              </div>
+            </Link>
+          </div>
+        ))}
     </div>
   );
 };

@@ -41,7 +41,23 @@ a {
 
 .cards {
   display: flex;
+  flex-wrap: wrap;
   clear: both;
+}
+
+.card-block {
+  text-align: center;
+}
+
+.card-img {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.card-img img {
+  width: auto;
+  height: 196px;
 }
 
 #carouselExampleControls {

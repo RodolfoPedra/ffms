@@ -13,7 +13,6 @@ const Classificacao = () => {
   const [fases, setFases] = React.useState(null);
 
   function getFases() {
-    const proxyurl = 'https://cors-anywhere.herokuapp.com/';
     const url = `${dadosGlobais.baseUrl}CampeonatosFases`;
     fetch(url, {
       headers: {
@@ -102,11 +101,13 @@ const Classificacao = () => {
               <QuartasFinal idFase={v.id_campeonatofase} />
             ) : v.Descricao_Fase == 'Semi Final' ? (
               <QuartasFinal idFase={v.id_campeonatofase} />
+            ) : v.Descricao_Fase == 'Final' ? (
+              <QuartasFinal idFase={v.id_campeonatofase} />
             ) : null}
           </section>
         ))}
       </div>
-      <Documentos campeonato={campeonato} />
+      <Documentos campeonato={campeonato} exercicio="2020" />
     </div>
   );
 };

@@ -15,6 +15,10 @@ export const GlobalStorage = ({ children }) => {
     34982: 'CENA',
     35034: 'MAC',
     35016: 'CEU',
+    58827: 'DAC',
+    21742: 'CAC',
+    34990: 'NOVO',
+    58035: 'TRÊS SC',
   });
 
   const baseUrl = 'http://deployme-com-br.umbler.net/cbf/';
@@ -33,7 +37,6 @@ export const GlobalStorage = ({ children }) => {
   }
 
   function campeonatos() {
-    const proxyurl = 'https://cors-anywhere.herokuapp.com/';
     const url = `${baseUrl}Campeonatos`;
     fetch(url, {
       headers: {

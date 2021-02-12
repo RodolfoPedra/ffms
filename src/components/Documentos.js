@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Documentos = ({ campeonato }) => {
+const Documentos = ({ campeonato, exercicio }) => {
   React.useEffect(() => {
     const tabSeletoresD = document.querySelectorAll('.btn-link-doc');
     const tabConteudosD = document.querySelectorAll('div[role=tabpanel]');
@@ -24,20 +24,20 @@ const Documentos = ({ campeonato }) => {
 
   function regulamento(campeonato) {
     window.open(
-      `http://www.futebolms.com.br/v5/wp-content/uploads/2020/${campeonato}/Regulamento ${campeonato}.pdf`,
+      `http://www.futebolms.com.br/v5/wp-content/uploads/${exercicio}/${campeonato}/Regulamento ${campeonato} ${exercicio}.pdf`,
     );
   }
 
   function tabelaJogos(campeonato) {
     window.open(
-      `http://www.futebolms.com.br/v5/wp-content/uploads/2020/${campeonato}/Tabela ${campeonato}.pdf`,
+      `http://www.futebolms.com.br/v5/wp-content/uploads/${exercicio}/${campeonato}/Tabela ${campeonato} ${exercicio}.pdf`,
     );
   }
 
-  function planoAcao() {
-    // window.open(
-    //   'http://www.futebolms.com.br/v5/wp-content/uploads/2020/01/Regulamento-Geral-de-Competicao-Serie-A-Edicao-2020-aprova_compressed.pdf',
-    // );
+  function planoAcao(campeonato) {
+    window.open(
+      `http://www.futebolms.com.br/v5/wp-content/uploads/${exercicio}/${campeonato}/Plano de ação ${campeonato} ${exercicio}.pdf`,
+    );
   }
 
   return (
@@ -76,14 +76,12 @@ const Documentos = ({ campeonato }) => {
           <table className="table">
             <thead className="tableHead">
               <tr>
-                <th>DATA</th>
                 <th>TÍTULO</th>
                 <th></th>
               </tr>
             </thead>
             <tbody className="tableBody">
               <tr>
-                <td>01/01/2020</td>
                 <td>Regulamento Específico {campeonato}</td>
                 <td>
                   <button
@@ -101,14 +99,12 @@ const Documentos = ({ campeonato }) => {
           <table className="table">
             <thead className="tableHead">
               <tr>
-                <th>DATA</th>
                 <th>TÍTULO</th>
                 <th></th>
               </tr>
             </thead>
             <tbody className="tableBody">
               <tr>
-                <td>01/01/2020</td>
                 <td>Tabela de Jogos {campeonato}</td>
 
                 <button
@@ -125,16 +121,17 @@ const Documentos = ({ campeonato }) => {
           <table className="table">
             <thead className="tableHead">
               <tr>
-                <th>DATA</th>
                 <th>TÍTULO</th>
                 <th></th>
               </tr>
             </thead>
             <tbody className="tableBody">
               <tr>
-                <td>01/01/2020</td>
-                <td>Plano Geral de Ação - 2020</td>
-                <button className="btn btn-primary" onClick={() => planoAcao()}>
+                <td>Plano Geral de Ação - {exercicio}</td>
+                <button
+                  className="btn btn-primary"
+                  onClick={() => planoAcao(campeonato)}
+                >
                   Visualizar
                 </button>
               </tr>
